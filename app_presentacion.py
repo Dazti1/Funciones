@@ -9,6 +9,8 @@ opcion_menu=""
 nota_acumulada=0
 nota_eximicion=0
 ponderacion_acumulada=0
+nota_presentacion=0
+nota_examen=0
 # --------------- CODIGO PRINCIPAL ---------------
 while True:
     os.system("cls")
@@ -16,6 +18,7 @@ while True:
 --------------- Menu Principal ---------------
 1.- Ingresar notas
 2.- Nota de eximición
+3.- Nota examen
 x.- Salir
 """))
     if opcion_menu=="1":
@@ -43,6 +46,12 @@ x.- Salir
             nota_acumulada=fp.ponderado(nota,ponderacion)+nota_acumulada
         nota_eximicion=fp.nota_eximicion(nota_eximicion,nota_acumulada,ponderacion_acumulada)
         print(f"Usted necesita un {nota_eximicion} para eximirse del ramo.")
+        os.system("pause")
+    elif opcion_menu=="3":
+        os.system("cls")
+        print("---------- Nota Examen ----------")
+        nota_presentacion=float(input("Ingrese su nota de presentación al examen: "))
+        print(f"Usted necesita un {fp.nota_examen(nota_presentacion)} en el examen para aprobar el ramo.")
         os.system("pause")
     elif opcion_menu=="x":
         break
